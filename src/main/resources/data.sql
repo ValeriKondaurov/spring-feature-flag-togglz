@@ -1,0 +1,1 @@
+INSERT INTO product (id, name, description, price, created_at, updated_at) VALUES (1, 'IPhone 12', 'Apple Iphone 12', 10000.00, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());

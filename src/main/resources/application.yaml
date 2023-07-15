@@ -1,0 +1,40 @@
+# use the default server port
+server:
+  port: 8080
+
+  # setup local h2 database config
+spring:
+  datasource:
+    url : jdbc:h2:file:./data/demo
+    driverClassName: org.h2.Driver
+    username: admin
+    password: password
+    database-platform: org.hibernate.dialect.H2Dialect
+  # setup local h2 database console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings.web-allow-others: false
+  # update the schema when necessary
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+  
+  # togglz settings
+togglz:
+  enabled: true
+  console:
+    enabled: true
+    path: /feature-flag-console
+    secured: false
+  # togglz feature flags
+  features:
+    PRICE_INCREASE:
+      enabled: false
+    START_SALES:
+      enabled: true
